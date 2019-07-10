@@ -4,21 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ระบบยืนยันตัวตนการเข้าใช้ระบบอินเตอร์เน็ต ของโรงเรียนยุพราชวิทยาลัย</title>
+    <title>ระบบยืนยืนตัวตนผู้ใช้บริการอินเตอร์เน็ต โรงเรียนยุพราชวิทยาลัย</title>
     <link rel="stylesheet" href="bulma.min.css">
+    <style>
+        @keyframes moving-background {
+            0% {
+                background-position: center;
+            }
+            25% {
+                background-position: right;
+            }
+            75% {
+                background-position: left;
+            }
+            100% {
+                background-position: center;
+            }
+        }
+        #bg {
+            z-index: -1;
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('bg.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(4px) brightness(0.75);
+            animation: moving-background 140s linear infinite;
+        }
+        #group-submit-btn, #submit-btn {
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-    <section class="hero is-info is-large">
-        <div class="hero-body">
-            <div class="container">
-                <h1 class="title">
-                    Large title
-                </h1>
-                <h2 class="subtitle">
-                    Large subtitle
-                </h2>
-            </div>
+<div id="bg"></div>
+<section class="hero is-fullheight">
+    <div class="hero-head"></div>
+    <div class="hero-body">
+        <div class="container has-text-centered" style="max-width: 400px">
+            <p class="title" style="color: #fff;">
+                ระบบยืนยันตัวตน
+            </p>
+            <p class="subtitle" style="color: #fff;">
+                โรงเรียนยุพราชวิทยาลัย
+            </p>
+            <form action="#" method="post">
+                <div class="field has-text-left">
+                    <label class="label" style="color: #fff;">ชื่อผู้ใช้</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="">
+                    </div>
+                </div>
+                <div class="field has-text-left">
+                    <label class="label" style="color: #fff;">รหัสผ่าน</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="">
+                    </div>
+                </div>
+                <div class="field is-grouped">
+                    <div class="control" id="group-submit-btn">
+                        <button type="submit" class="button is-primary" id="submit-btn">ลงชื่อเข้าใช้</button>
+                    </div>
+                </div>
+            </form>
         </div>
-    </section>
+    </div>
+    <div class="hero-foot">
+        <div class="container has-text-centered">
+            <p style="font-size: 0.8em; color: #fff">
+                ออกแบบโดย นายศักย์ศิลกาล เพชรกุลจินดา<br>
+                นักเรียนชั้น ม.6/2 รุ่น 113 (อคิรัญชน์)
+            </p>
+        </div>
+    </div>
+</section>
 </body>
 </html>
