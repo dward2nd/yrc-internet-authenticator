@@ -7,6 +7,20 @@
     <title>ระบบยืนยืนตัวตนผู้ใช้บริการอินเตอร์เน็ต โรงเรียนยุพราชวิทยาลัย</title>
     <link rel="stylesheet" href="bulma.min.css">
     <style>
+        @-webkit-keyframes moving-background {
+            0% {
+                background-position: center;
+            }
+            25% {
+                background-position: right;
+            }
+            75% {
+                background-position: left;
+            }
+            100% {
+                background-position: center;
+            }
+        }
         @keyframes moving-background {
             0% {
                 background-position: center;
@@ -29,11 +43,16 @@
             background-image: url('bg.jpg');
             background-size: cover;
             background-position: center;
+            -webkit-filter: blur(4px) brightness(0.75);
             filter: blur(4px) brightness(0.75);
+            -webkit-animation: moving-background 140s linear infinite;
             animation: moving-background 140s linear infinite;
         }
         #group-submit-btn, #submit-btn {
             width: 100%;
+        }
+        label {
+            text-shadow: rgba(0,0,0,0.4) 1px 1px 3px; 
         }
     </style>
 </head>
@@ -72,6 +91,7 @@
     </div>
     <div class="hero-foot">
         <div class="container has-text-centered">
+            <p style="font-size: 0.9em; color: #f00; text-shadow: #fff 1px 1px 2px;"><em>* ไม่แนะนำให้ใช้ Internet Exploror ในการเข้าสู่ระบบ</em></p>
             <p style="font-size: 0.8em; color: #fff">
                 ออกแบบโดย นายศักย์ศิลกาล เพชรกุลจินดา<br>
                 นักเรียนชั้น ม.6/2 รุ่น 113 (อคิรัญชน์)
