@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ระบบยืนยืนตัวตนผู้ใช้บริการอินเตอร์เน็ต โรงเรียนยุพราชวิทยาลัย</title>
+    <link rel="stylesheet" href="bulma.min.css">
+    <style>
+        @-webkit-keyframes moving-background {
+            0% {
+                background-position: center;
+            }
+            25% {
+                background-position: right;
+            }
+            75% {
+                background-position: left;
+            }
+            100% {
+                background-position: center;
+            }
+        }
+        @keyframes moving-background {
+            0% {
+                background-position: center;
+            }
+            25% {
+                background-position: right;
+            }
+            75% {
+                background-position: left;
+            }
+            100% {
+                background-position: center;
+            }
+        }
+        #bg {
+            z-index: -1;
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('bg.jpg');
+            background-size: cover;
+            background-position: center;
+            -webkit-filter: blur(4px) brightness(0.75);
+            filter: blur(4px) brightness(0.75);
+            -webkit-animation: moving-background 140s linear infinite;
+            animation: moving-background 140s linear infinite;
+        }
+        #group-submit-btn, #submit-btn {
+            width: 100%;
+        }
+        label {
+            text-shadow: rgba(0,0,0,0.4) 1px 1px 3px; 
+        }
+    </style>
+</head>
+<body>
+<div id="bg"></div>
+<section class="hero is-fullheight">
+    <div class="hero-head"></div>
+    <div class="hero-body">
+        <div class="container has-text-centered" style="max-width: 400px">
+            <p class="title" style="color: #fff;">
+                ระบบยืนยันตัวตน
+            </p>
+            <p class="subtitle" style="color: #fff;">
+                โรงเรียนยุพราชวิทยาลัย
+            </p>
+            <form action="%%AUTH_POST_URL%%" method="post">
+                <input type="hidden" name="%%REDIRID%%" value= "%%PROTURI%%">
+                <input type="hidden" name="%%MAGICID%%" value="%%MAGICVAL%%">
+                <div class="notification is-danger">
+                    <button class="delete"></button>
+                    ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง<br>
+                    %%FAILED_MESSAGE%%
+                </div>
+                <div class="field has-text-left">
+                    <label class="label" style="color: #fff;">ชื่อผู้ใช้</label>
+                    <div class="control">
+                        <input class="input" class="is-rounded" name="%%USERNAMEID%%" type="text">
+                    </div>
+                </div>
+                <div class="field has-text-left">
+                    <label class="label" style="color: #fff;">รหัสผ่าน</label>
+                    <div class="control">
+                        <input class="input" class="is-rounded" name="%%PASSWORDID%%" type="password">
+                    </div>
+                </div>
+                <div class="field is-grouped">
+                    <div class="control" id="group-submit-btn">
+                        <button type="submit" class="button is-danger is-rounded" id="submit-btn">ลงชื่อเข้าใช้</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="hero-foot">
+        <div class="container has-text-centered">
+            <p style="font-size: 0.9em; color: #f00; text-shadow: rgba(255,255,255,0.4) 0px 0px 2px;"><em>* ไม่แนะนำให้ใช้ Internet Exploror ในการเข้าสู่ระบบ</em></p>
+            <p style="font-size: 0.8em; color: #fff">
+                ออกแบบโดย นายศักย์ศิลกาล เพชรกุลจินดา<br>
+                นักเรียนชั้น ม.6/2 รุ่น 113 (อคิรัญชน์)
+            </p>
+        </div>
+    </div>
+</section>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+    $notification = $delete.parentNode;
+    $delete.addEventListener('click', () => {
+      $notification.parentNode.removeChild($notification);
+    });
+  });
+});
+</script>
+</body>
+</html>

@@ -7,6 +7,7 @@
     <title>ระบบยืนยืนตัวตนผู้ใช้บริการอินเตอร์เน็ต โรงเรียนยุพราชวิทยาลัย</title>
     <link rel="stylesheet" href="bulma.min.css">
     <style>
+        /*
         @-webkit-keyframes moving-background {
             0% {
                 background-position: center;
@@ -35,6 +36,7 @@
                 background-position: center;
             }
         }
+        */
         #bg {
             z-index: -1;
             position: fixed;
@@ -45,8 +47,6 @@
             background-position: center;
             -webkit-filter: blur(4px) brightness(0.75);
             filter: blur(4px) brightness(0.75);
-            -webkit-animation: moving-background 140s linear infinite;
-            animation: moving-background 140s linear infinite;
         }
         #group-submit-btn, #submit-btn {
             width: 100%;
@@ -63,35 +63,20 @@
     <div class="hero-body">
         <div class="container has-text-centered" style="max-width: 400px">
             <p class="title" style="color: #fff;">
-                ระบบยืนยันตัวตน
+                การยืนยันตัวตนสำเร็จ
             </p>
             <p class="subtitle" style="color: #fff;">
-                โรงเรียนยุพราชวิทยาลัย
+                เพื่อไม่ให้สถานะการยืนยันตนหมดอายุ กรุณาเปิดหน้าต่างนี้ทิ้งไว้ เพื่อคงสถานะดังกล่าว ซึ่งสถานะดังกล่าวนั้นมีอายุอีก <strong id="countdown" style="color: #00d1b2; text-shadow: rgba(0,0,0,0.7) 1px 1px 3px">%%TIMEOUT%%</strong> วินาที
             </p>
-            <form action="#" method="post">
-                <div class="field has-text-left">
-                    <label class="label" style="color: #fff;">ชื่อผู้ใช้</label>
-                    <div class="control">
-                        <input class="input" type="text" placeholder="">
-                    </div>
-                </div>
-                <div class="field has-text-left">
-                    <label class="label" style="color: #fff;">รหัสผ่าน</label>
-                    <div class="control">
-                        <input class="input" type="text" placeholder="">
-                    </div>
-                </div>
-                <div class="field is-grouped">
-                    <div class="control" id="group-submit-btn">
-                        <button type="submit" class="button is-primary" id="submit-btn">ลงชื่อเข้าใช้</button>
-                    </div>
-                </div>
-            </form>
+            <div class="columns">
+                <div class="column"><a href="%%AUTH_REDIR_URL%%" class="button is-primary is-rounded" target="_blank">&nbsp;&nbsp;เปิดหน้าต่างใหม่&nbsp;&nbsp;</a></div>
+                <div class="column"><a href="%%AUTH_LOGOUT%%" class="button is-danger is-rounded" target="_blank">&nbsp;&nbsp;ออกจากระบบ&nbsp;&nbsp;</a></div>
+            </div>
         </div>
     </div>
     <div class="hero-foot">
         <div class="container has-text-centered">
-            <p style="font-size: 0.9em; color: #f00; text-shadow: #fff 1px 1px 2px;"><em>* ไม่แนะนำให้ใช้ Internet Exploror ในการเข้าสู่ระบบ</em></p>
+            <p style="font-size: 0.9em; color: #f00; text-shadow: rgba(255,255,255,0.4) 0px 0px 2px;"><em>* ไม่แนะนำให้ใช้ Internet Exploror ในการเข้าสู่ระบบ</em></p>
             <p style="font-size: 0.8em; color: #fff">
                 ออกแบบโดย นายศักย์ศิลกาล เพชรกุลจินดา<br>
                 นักเรียนชั้น ม.6/2 รุ่น 113 (อคิรัญชน์)
@@ -99,5 +84,23 @@
         </div>
     </div>
 </section>
+<script>
+    var countDownTime = %%TIMEOUT%% + 1;
+
+    function countDown() {
+        countDown--;
+        if (countDownTime <= 0) {
+            location.href = "%%KEEPALIVEURL%%";
+            return;
+        }
+        document.getElementById('countdown').innerHTML = countDownTime;
+        counter = setTimeout(countDown, 1000);
+    }
+    function startit() {
+        countDown();
+    }
+
+    window.onload = startit;
+</script>
 </body>
 </html>
