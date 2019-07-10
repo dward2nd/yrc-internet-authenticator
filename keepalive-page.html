@@ -55,6 +55,18 @@
         label {
             text-shadow: rgba(0,0,0,0.4) 1px 1px 3px; 
         }
+        #github-link {
+            opacity: 1;
+            color: white;
+        }
+        #github-link:hover {
+            opacity: 0.6;
+            color: white;
+        }
+        #github-link:active {
+            opacity: 0.6;
+            color: white;
+        }
     </style>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <meta name="og:title" property="og:title" content="ระบบยืนยืนตัวตนผู้ใช้บริการอินเตอร์เน็ต โรงเรียนยุพราชวิทยาลัย">
@@ -85,13 +97,26 @@
     </div>
     <div class="hero-foot">
         <div class="container has-text-centered">
-            <p style="font-size: 0.9em; color: #f00; text-shadow: rgba(255,255,255,0.4) 0px 0px 2px;"><em>* ไม่แนะนำให้ใช้ Internet Exploror ในการเข้าสู่ระบบ</em></p>
+            <p style="font-size: 0.9em; color: #fff;"><em>* ไม่แนะนำให้ใช้ Internet Exploror ในการเข้าสู่ระบบ</em></p>
             <p style="font-size: 0.8em; color: #fff">
                 ออกแบบโดย นายศักย์ศิลกาล เพชรกุลจินดา<br>
                 นักเรียนชั้น ม.6/2 รุ่น 113 (อคิรัญชน์)
             </p>
         </div>
     </div>
+</section>
+<section class="hero is-dark">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h2 class="subtitle">
+        สำหรับนักเรียนที่สนใจ source code ของโครงการนี้ ทางผู้จัดทำได้เปิด repository ไว้เป็นสาธารณะเพื่อการศึกษา สามารถคลิกที่รูปด้านล้างได้
+      </h2>
+      <a href="https://github.com/dward2nd/yrc-internet-authenticator" id="github-link" target="_blank">
+        <img src="github-logo.png" alt="GitHub Repository's source code of the project">
+        <p><em>yrc-internet-authenticator</em></p>
+    </a>
+    </div>
+  </div>
 </section>
 <script>
     var countDownTime = %%TIMEOUT%% + 1;
