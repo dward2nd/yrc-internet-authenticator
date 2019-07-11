@@ -47,6 +47,7 @@
             position: fixed;
             width: 100vw;
             height: 100vh;
+            height: calc(var(--vh, 1vh) * 100);
             background-image: url('bg.jpg');
             background-size: cover;
             background-position: center;
@@ -76,7 +77,7 @@
 </head>
 <body>
 <div id="bg"></div>
-<section class="hero is-fullheight">
+<section class="hero is-fullheight" style="height: calc(var(--vh, 1vh) * 100);">
     <div class="hero-head"></div>
     <div class="hero-body">
         <div class="container has-text-centered">
