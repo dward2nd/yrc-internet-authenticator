@@ -150,10 +150,12 @@
 
     window.onload = startit;
 
-    window.addEventListener('resize', () => {
+    function makeProperHeight() {
         let vh = window.innerHeight * 0.01;
         document.documentElement.style.setProperty('--vh', `${vh}px`);
-    });
+    }
+    makeProperHeight();
+    window.addEventListener('resize', makeProperHeight);
 </script>
 </body>
 </html>
