@@ -137,6 +137,13 @@
   </div>
 </section>
 <script>
+    function makeProperHeight() {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+    makeProperHeight();
+    window.addEventListener('resize', makeProperHeight);
+
     var countDownTime = %%TIMEOUT%% + 1;
 
     function countDown() {
