@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,6 +22,8 @@
             background: -ms-linear-gradient(0deg, #e6e9f0 0%, #eef1f5 100%);
             background: -o-linear-gradient(0deg, #e6e9f0 0%, #eef1f5 100%);
             background: linear-gradient(0deg, #e6e9f0 0%, #eef1f5 100%);
+            background-attachment: fixed;
+            background-repeat: no-repeat;
             -webkit-box-sizing: border-box;
             -moz-box-sizing: border-box;
             box-sizing: border-box;
@@ -224,7 +226,6 @@
     <link rel="shortcut icon" href="logo.png" type="image/png">
 </head>
 <body>
-<div id="bg"></div>
 <section class="hero" style="height: 100vh; height: calc(var(--vh, 1vh) * 100);">
     <div class="hero-head"></div>
     <div class="hero-body">
@@ -261,8 +262,8 @@
     </div>
     <div class="hero-foot">
         <div class="container has-text-centered">
-            <p style="font-size: 0.9em;"><em>* ไม่แนะนำให้ใช้ Internet Explorer ในการเข้าสู่ระบบ</em></p>
-            <p style="font-size: 0.8em;">
+            <p style="font-size:0.9em;color:#ff3860;"><em>* ไม่แนะนำให้ใช้ Internet Explorer ในการเข้าสู่ระบบ</em></p>
+            <p style="font-size:0.8em;">
                 ออกแบบโดย นายศักย์ศิลกาล เพชรกุลจินดา<br>
                 นักเรียนชั้น ม.6/2 รุ่น 114 (ปีการศึกษา 2562)
             </p>
@@ -272,7 +273,7 @@
 <script>
 function makeProperHeight() {
     let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    document.documentElement.style.setProperty('--vh', vh+'px');
 }
 makeProperHeight();
 window.addEventListener('resize', makeProperHeight);
