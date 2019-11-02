@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ระบบยืนยืนตัวตนผู้ใช้บริการอินเตอร์เน็ต โรงเรียนยุพราชวิทยาลัย</title>
+    <style>
+        *, ::before, ::after {
+            -webkit-box-sizing: inherit;
+            -moz-box-sizing: inherit;
+            box-sizing: inherit;
+        }
+        body, html, p {
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            background: #e6e9f0;
+            background: -webkit-linear-gradient(0deg, #e6e9f0 0%, #eef1f5 100%);
+            background: -moz-linear-gradient(0deg, #e6e9f0 0%, #eef1f5 100%);
+            background: -ms-linear-gradient(0deg, #e6e9f0 0%, #eef1f5 100%);
+            background: -o-linear-gradient(0deg, #e6e9f0 0%, #eef1f5 100%);
+            background: linear-gradient(0deg, #e6e9f0 0%, #eef1f5 100%);
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            min-width: 300px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+            text-rendering: optimizeLegibility;
+            -webkit-text-size-adjust: 100%;
+            -moz-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+        }
+        body, button, input {
+            font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+        }
+        body {
+            color: #363636;
+            font-size: 1em;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+        img {
+            height: auto;
+            max-width: 100%;
+        }
+        input, button {
+            margin: 0;
+        }
+        .hero {
+            -webkit-align-items: stretch;
+            align-items: stretch;
+            display: block;
+            display: -webkit-flex;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-justify-content: space-between;
+            justify-content: space-between;
+        }
+        .hero-head, .hero-foot {
+            flex-grow: 0;
+            -webkit-flex-shrink: 0;
+            flex-shrink: 0;
+        }
+        .hero-body {
+            -webkit-align-items: center;
+            align-items: center;
+            display: -webkit-flex;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            flex-grow: 1;
+            -webkit-flex-shrink: 1;
+            flex-shrink: 1;
+            padding: 3rem;
+        }
+        .container {
+            -webkit-flex-grow: 1;
+            flex-grow: 1;
+            margin: 0 auto;
+            position: relative;
+            width: auto;
+        }
+        .has-text-centered {
+            text-align: center!important;
+        }
+        .has-text-left {
+            text-align: left!important;
+        }
+        .title:not(:last-child), .subtitle:not(:last-child) {
+            margin-bottom: 1.5rem;
+        }
+        .title, .subtitle {
+            word-break: break-word;
+        }
+        .title {
+            font-size: 2rem;
+            font-weight: 600;
+            line-height: 1.125;
+        }
+        .subtitle {
+            color: #4a4a4a;
+            font-size: 1.25rem;
+            font-weight: 400;
+            line-height: 1.25;
+        }
+        .field:not(:last-child) {
+            margin-bottom: 0.75rem;
+        }
+        .is-grouped {
+            display: -webkit-flex;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-justify-content: flex-start;
+            justify-content: flex-start;
+        }
+        .label:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+        .label {
+            display: block;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+        .control {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            clear: both;
+            font-size: 1rem;
+            position: relative;
+            text-align: left;
+        }
+        .input {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -webkit-align-items: center;
+            align-items: center;
+            background-color: #fff;
+            border: 1px solid #eeeeee;
+            border-radius: 4px;
+            box-shadow: inset 0 1px 2px rgba(10,10,10,.1);
+            display: -webkit-inline-flex;
+            display: -webkit-inline-box;
+            display: -moz-inline-flex;
+            display: -moz-inline-box;
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            font-size: 1rem;
+            height: 2.25em;
+            justify-content: flex-start;
+            line-height: 1.5;
+            max-width: 100%;
+            padding: calc(.675em - 1px);
+            position: relative;
+            transition: border-color 600ms ease, box-shadow 300ms ease;
+            vertical-align: top;
+            width: 100%;
+        }
+        .input:hover {
+            border-color: #b5b5b5;
+        }
+        .input:active, .input:focus {
+            border-color: #ff2b56;
+            box-shadow: 0 0 0 0.125em rgba(255,43,86,.25);
+        }
+        a {
+            text-decoration: none;
+        }
+        .button {
+            background-color: #ff3860;
+            border-color: transparent;
+            border-radius: 290486px;
+            border-width: 1px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 1.15rem;
+            -webkit-justify-content: center;
+            justify-content: center;
+            padding: calc(0.375em - 1px) 1em;
+            text-align: center;
+            transition: background-color 300ms ease;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            white-space: nowrap;
+        }
+        .button:hover {
+            background-color: #ff7a95;
+            border-color: transparent;
+        }
+        .button:active {
+            background-color: #d60c34;
+            border-color: transparent;
+        }
+        .input:active, .button:active, .input:focus, .button:focus {
+            outline: 0;
+        }
+        @media screen and (min-width: 769px), print {
+            .columns:not(.is-desktop) {
+                display: -webkit-flex;
+                display: -webkit-box;
+                display: -moz-box;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: flex;
+            }
+        }
+        .columns {
+            margin: -.75rem;
+            margin-bottom: 0;
+        }
+        .columns:last-child {
+            margin-bottom: -.75rem;
+        }
+        .column {
+            display: block;
+            -webkit-flex-basis: 0;
+            flex-basis: 0;
+            -webkit-flex-grow: 1;
+            flex-grow: 1;
+            -webkit-flex-shrink: 1;
+            flex-shrink: 1;
+            padding: .75rem;
+        }
+        .is-primary {
+            background-color: #00d1b2;
+        }
+        .is-primary:hover {
+            background-color: #7ec4ba;
+        }
+        .is-danger {
+            background-color: #ff3860;
+        }
+        #group-submit-btn {
+            width: 50%;
+            margin: 0 auto;
+        }
+        #submit-btn {
+            width: 100%;
+            font-size: 1.1rem;
+        }
+    </style>
+    <link rel="icon" sizes="128x128" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+    <meta name="msapplication-square128x128logo" content="logo.png">
+    <meta name="theme-color" content="#FF3860">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="shortcut icon" href="logo.png" type="image/png">
+</head>
+<body>
+<div id="bg"></div>
+<section class="hero" style="height: 100vh; height: calc(var(--vh, 1vh) * 100);">
+    <div class="hero-head"></div>
+    <div class="hero-body">
+        <div class="container has-text-centered" style="max-width: 400px">
+            <img src="logo.png">
+            <p class="title">
+                การยืนยันตัวตนสำเร็จ
+            </p>
+            <p class="subtitle">
+                เพื่อไม่ให้สถานะการยืนยันตนหมดอายุ กรุณาเปิดหน้าต่างนี้ทิ้งไว้ เพื่อคงสถานะดังกล่าว ซึ่งสถานะดังกล่าวนั้นมีอายุอีก <strong id="countdown" style="color: #00d1b2; text-shadow: rgba(0,0,0,0.7) 1px 1px 3px">%%TIMEOUT%%</strong> วินาที
+            </p>
+            <div class="columns">
+                <div class="column">
+                    <a href="%%AUTH_REDIR_URL%%" class="button is-primary is-rounded" target="_blank" rel="noopener noreferrer">&nbsp;&nbsp;เปิดหน้าต่างใหม่&nbsp;&nbsp;</a>
+                </div>
+                <div class="column">
+                    <a href="%%AUTH_LOGOUT%%" class="button is-danger is-rounded" target="_blank" rel="noopener noreferrer">&nbsp;&nbsp;ออกจากระบบ&nbsp;&nbsp;</a>
+                </div>
+            </div>
+            <p class="subtitle" style="margin-top: 2rem;font-size:.95rem;color:#d60c34"><em>
+                ขอความกรุณาทุกท่านกรอกแบบสอบถามเกี่ยวกับ UI ที่ถูกออกแบบใหม่นี้ เพื่อประโยชน์ในการปรับปรุงให้ดียิ่งขึ้นต่อไป
+                <a href="https://forms.gle/kMDELNEjRCZq4Hj76" rel="noopener noreferrer">https://forms.gle/kMDELNEjRCZq4Hj76</a>
+            </em></p>
+        </div>
+    </div>
+    <div class="hero-foot">
+        <div class="container has-text-centered">
+            <p style="font-size: 0.9em;"><em>* ไม่แนะนำให้ใช้ Internet Explorer ในการเข้าสู่ระบบ</em></p>
+            <p style="font-size: 0.8em;">
+                ออกแบบโดย นายศักย์ศิลกาล เพชรกุลจินดา<br>
+                นักเรียนชั้น ม.6/2 รุ่น 114 (ปีการศึกษา 2562)
+            </p>
+        </div>
+    </div>
+</section>
+<script>
+    function makeProperHeight() {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+    makeProperHeight();
+    window.addEventListener('resize', makeProperHeight);
+
+    var countDownTime = %%TIMEOUT%% + 1;
+
+    function countDown() {
+        countDown--;
+        if (countDownTime <= 0) {
+            location.href = "%%KEEPALIVEURL%%";
+            return;
+        }
+        document.getElementById('countdown').innerHTML = countDownTime;
+        counter = setTimeout(countDown, 1000);
+    }
+    function startit() {
+        countDown();
+    }
+
+    window.onload = startit;
+</script>
+</body>
+</html>
