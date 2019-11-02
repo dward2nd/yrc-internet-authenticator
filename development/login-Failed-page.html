@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,6 +22,8 @@
             background: -ms-linear-gradient(0deg, #e6e9f0 0%, #eef1f5 100%);
             background: -o-linear-gradient(0deg, #e6e9f0 0%, #eef1f5 100%);
             background: linear-gradient(0deg, #e6e9f0 0%, #eef1f5 100%);
+            background-attachment: fixed;
+            background-repeat: no-repeat;
             -webkit-box-sizing: border-box;
             -moz-box-sizing: border-box;
             box-sizing: border-box;
@@ -96,11 +98,13 @@
             width: auto;
         }
         .notification {
+            transition: 2000ms ease;
             background-color: #ff3860;
             color: #fff;
             border-radius: 4px;
             padding: 1.25rem 2.5rem 1.25rem 1.5rem;
             position: relative;
+            overflow: hidden;
         }
         .notification:not(:last-child) {
             margin-bottom: 1.5rem;
@@ -283,7 +287,6 @@
     <link rel="shortcut icon" href="logo.png" type="image/png">
 </head>
 <body>
-<div id="bg"></div>
 <section class="hero" style="height: 100vh; height: calc(var(--vh, 1vh) * 100);">
     <div class="hero-head"></div>
     <div class="hero-body">
@@ -295,14 +298,14 @@
             <p class="subtitle">
                 โรงเรียนยุพราชวิทยาลัย
             </p>
+            <div class="notification is-danger">
+                <button class="delete"></button>
+                ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง<br>
+                (%%FAILED_MESSAGE%%)
+            </div>
             <form action="%%AUTH_POST_URL%%" method="post">
                 <input type="hidden" name="%%REDIRID%%" value= "%%PROTURI%%">
                 <input type="hidden" name="%%MAGICID%%" value="%%MAGICVAL%%">
-                <div class="notification is-danger">
-                    <button class="delete"></button>
-                    ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง<br>
-                    (%%FAILED_MESSAGE%%)
-                </div>
                 <div class="field has-text-left">
                     <label class="label">ชื่อผู้ใช้</label>
                     <div class="control">
@@ -325,8 +328,8 @@
     </div>
     <div class="hero-foot">
         <div class="container has-text-centered">
-            <p style="font-size: 0.9em;"><em>* ไม่แนะนำให้ใช้ Internet Explorer ในการเข้าสู่ระบบ</em></p>
-            <p style="font-size: 0.8em;">
+            <p style="font-size:0.9em;color:#ff3860;"><em>* ไม่แนะนำให้ใช้ Internet Explorer ในการเข้าสู่ระบบ</em></p>
+            <p style="font-size:0.8em;">
                 ออกแบบโดย นายศักย์ศิลกาล เพชรกุลจินดา<br>
                 นักเรียนชั้น ม.6/2 รุ่น 114 (ปีการศึกษา 2562)
             </p>
@@ -335,21 +338,24 @@
 </section>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  (document.querySelectorAll('.notification .delete') || []).forEach(function($delete) {
-    $notification = $delete.parentNode;
-    $delete.addEventListener('click', function() {
+  $delete = document.querySelector('.notification .delete');
+  $notification = $delete.parentNode;
+  $notification.style.height = window.getComputedStyle($notification, null).getPropertyValue('height');
+  $delete.addEventListener('click', function() {
+    $notification.style.height = '0';
+    $notification.style.paddingTop = '0';
+    $notification.style.paddingBottom = '0';
+    $notification.style.marginBottom = '0';
+    $notification.style.backgroundColor = '#ffdd57';
+    setTimeout(function() {
       $notification.parentNode.removeChild($notification);
-    });
+    }, 2000);
   });
 });
+
 function makeProperHeight() {
-    let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
-}
-makeProperHeight();
-window.addEventListener('resize', makeProperHeight);function makeProperHeight() {
-    let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    var vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', vh+'px');
 }
 makeProperHeight();
 window.addEventListener('resize', makeProperHeight);
