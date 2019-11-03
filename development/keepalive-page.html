@@ -258,6 +258,9 @@
         .is-primary:hover {
             background-color: #7ec4ba;
         }
+        .is-primary:active {
+            background-color: #00574a;
+        }
         .is-danger {
             background-color: #ff3860;
         }
@@ -295,7 +298,7 @@
                     <a href="%%AUTH_REDIR_URL%%" class="button is-primary is-rounded" target="_blank" rel="noopener noreferrer">&nbsp;&nbsp;เปิดหน้าต่างใหม่&nbsp;&nbsp;</a>
                 </div>
                 <div class="column">
-                    <a href="%%AUTH_LOGOUT%%" class="button is-danger is-rounded" target="_blank" rel="noopener noreferrer">&nbsp;&nbsp;ออกจากระบบ&nbsp;&nbsp;</a>
+                    <a href="%%AUTH_LOGOUT%%" class="button is-danger is-rounded">&nbsp;&nbsp;ออกจากระบบ&nbsp;&nbsp;</a>
                 </div>
             </div>
             <p class="subtitle" style="margin-top: 2rem;font-size:.95rem;color:#d60c34"><em>
@@ -325,7 +328,7 @@
     var countDownTime = %%TIMEOUT%% + 1;
 
     function countDown() {
-        countDown--;
+        countDownTime--;
         if (countDownTime <= 0) {
             location.href = "%%KEEPALIVEURL%%";
             return;
