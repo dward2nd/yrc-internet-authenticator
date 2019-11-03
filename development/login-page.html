@@ -62,6 +62,12 @@
         input, button {
             margin: 0;
         }
+        #yrc-logo {
+            display: inline-block;
+            width: 150px;
+            height: 150px;
+            background-image: url('./logo.png');
+        }
         .hero {
             -webkit-align-items: stretch;
             align-items: stretch;
@@ -242,7 +248,7 @@
 <section class="hero" style="height: 100vh; height: calc(var(--vh, 1vh) * 100);">
     <div class="hero-body">
         <div class="container has-text-centered" style="max-width: 400px">
-            <img src="logo.png">
+            <span id="yrc-logo"></span>
             <p class="title">
                 ระบบยืนยันตัวตน
             </p>
