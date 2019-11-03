@@ -10,20 +10,19 @@
             -webkit-box-sizing: inherit;
             -moz-box-sizing: inherit;
             box-sizing: inherit;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -khtml-user-select: none;
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
+            user-select: none;
         }
         body, html, p {
             margin: 0;
             padding: 0;
         }
         html {
-            background: #e6e9f0;
-            background: -webkit-linear-gradient(0deg, #e6e9f0 0%, #eef1f5 100%);
-            background: -moz-linear-gradient(0deg, #e6e9f0 0%, #eef1f5 100%);
-            background: -ms-linear-gradient(0deg, #e6e9f0 0%, #eef1f5 100%);
-            background: -o-linear-gradient(0deg, #e6e9f0 0%, #eef1f5 100%);
-            background: linear-gradient(0deg, #e6e9f0 0%, #eef1f5 100%);
-            background-attachment: fixed;
-            background-repeat: no-repeat;
+            background: #eef1f5;
             -webkit-box-sizing: border-box;
             -moz-box-sizing: border-box;
             box-sizing: border-box;
@@ -84,9 +83,12 @@
             -webkit-flex-shrink: 0;
             flex-shrink: 0;
         }
+        .hero-foot {
+            padding: 1rem 3rem;
+        }
         .hero-body {
-            -webkit-align-items: center;
-            align-items: center;
+            -webkit-align-items: top;
+            align-items: top;
             display: -webkit-flex;
             display: -webkit-box;
             display: -moz-box;
@@ -96,7 +98,7 @@
             flex-grow: 1;
             -webkit-flex-shrink: 1;
             flex-shrink: 1;
-            padding: 3rem;
+            padding: 1rem 3rem;
         }
         .container {
             -webkit-flex-grow: 1;
@@ -111,7 +113,10 @@
         .has-text-left {
             text-align: left!important;
         }
-        .title:not(:last-child), .subtitle:not(:last-child) {
+        .title:not(:last-child) {
+            margin-bottom: 0.6rem;
+        }
+        .subtitle:not(:last-child) {
             margin-bottom: 1.5rem;
         }
         .title, .subtitle {
@@ -309,7 +314,6 @@
     </div>
     <div class="hero-foot">
         <div class="container has-text-centered">
-            <p style="font-size:0.9em;color:#ff3860;"><em>* ไม่แนะนำให้ใช้ Internet Explorer ในการเข้าสู่ระบบ</em></p>
             <p style="font-size:0.8em;">
                 ออกแบบโดย นายศักย์ศิลกาล เพชรกุลจินดา<br>
                 นักเรียนชั้น ม.6/2 รุ่น 114 (ปีการศึกษา 2562)
@@ -319,11 +323,12 @@
 </section>
 <script>
     function makeProperHeight() {
-        let vh = window.innerHeight * 0.01;
+        var vh = window.innerHeight * 0.01;
         document.documentElement.style.setProperty('--vh', vh+'px');
     }
+    
     makeProperHeight();
-    window.addEventListener('resize', makeProperHeight);
+    window.onresize = makeProperHeight;
 
     var countDownTime = %%TIMEOUT%% + 1;
 
