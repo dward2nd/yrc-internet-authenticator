@@ -59,8 +59,14 @@
             height: auto;
             max-width: 100%;
         }
-        input, button {
+        .input, .button {
             margin: 0;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            -khtml-user-select: text;
+            -webkit-user-select: text;
+            -webkit-touch-callout: default;
+            user-select: text;
         }
         #yrc-logo {
             display: inline-block;
