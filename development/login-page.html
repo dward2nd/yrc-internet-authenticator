@@ -10,14 +10,20 @@
             -webkit-box-sizing: inherit;
             -moz-box-sizing: inherit;
             box-sizing: inherit;
-        }
-        :not(input, button) {
             -moz-user-select: none;
             -ms-user-select: none;
             -khtml-user-select: none;
             -webkit-user-select: none;
             -webkit-touch-callout: none;
             user-select: none;
+        }
+        input, button {
+            -moz-user-select: text;
+            -ms-user-select: text;
+            -khtml-user-select: ;
+            -webkit-user-select: text;
+            -webkit-touch-callout: text;
+            user-select: text;
         }
         body, html, p {
             margin: 0;
