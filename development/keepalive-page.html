@@ -112,7 +112,7 @@
             flex-grow: 1;
             -webkit-flex-shrink: 1;
             flex-shrink: 1;
-            padding: 1rem 0;
+            padding: 1rem 2rem;
             z-index: 999;
         }
         .container {
@@ -197,6 +197,13 @@
         .input:active, .button:active, .input:focus, .button:focus {
             outline: 0;
         }
+        #countdown {
+            color: #3298dc;
+            display: block;
+            font-family: monospace;
+            font-size: 1.8rem;
+            margin: .3em;
+        }
         @media screen and (min-width: 769px), print {
             .columns:not(.is-desktop) {
                 display: -webkit-flex;
@@ -208,7 +215,6 @@
             }
         }
         .columns {
-            margin: -.75rem;
             margin-bottom: 0;
         }
         .columns:last-child {
@@ -225,13 +231,13 @@
             padding: .75rem;
         }
         .is-primary {
-            background-color: #00d1b2;
+            background-color: #48c774;
         }
         .is-primary:hover {
-            background-color: #7ec4ba;
+            background-color: #9ccaac;
         }
         .is-primary:active {
-            background-color: #00574a;
+            background-color: #117534;
         }
         .is-danger {
             background-color: #ff3860;
@@ -264,7 +270,7 @@
     <div class="hero-body">
         <div class="container has-text-centered">
             <p class="subtitle">
-                To keep the session, leave this page open, or it will be expired in <strong id="countdown" style="color:#00d1b2;">%%TIMEOUT%%</strong> seconds.
+                To keep the session, leave this page open, or it will be expired in <strong id="countdown">%%TIMEOUT%%</strong> seconds.
             </p>
             <div class="columns">
                 <div class="column">
