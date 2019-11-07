@@ -2,7 +2,7 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ระบบยืนยืนตัวตนผู้ใช้บริการอินเตอร์เน็ต โรงเรียนยุพราชวิทยาลัย</title>
     <style>
@@ -73,7 +73,7 @@
             display: inline-block;
             width: 150px;
             height: 150px;
-            background-image: url('%%IMAGE:logo-new%%');
+            background-image: url('logo.png');
         }
         .hero {
             -webkit-align-items: stretch;
@@ -92,6 +92,8 @@
             justify-content: space-between;
         }
         .hero-head, .hero-foot {
+            -webkit-align-items: flex-end;
+            align-items: flex-end;
             flex-grow: 0;
             -webkit-flex-shrink: 0;
             flex-shrink: 0;
@@ -328,6 +330,15 @@
     function makeProperHeight() {
         var vh = window.innerHeight * 0.01;
         document.documentElement.style.setProperty('--vh', vh+'px');
+        var formElement = document.querySelector('.hero-body form');
+        var heroHeadElement = document.querySelector('.hero-head');
+        var formHeight = parseFloat(window.getComputedStyle(formElement, null).getPropertyValue('height')) * 0.01;
+        var heroHeadHeight = parseFloat(window.getComputedStyle(heroHeadElement, null).getPropertyValue('height')) * 0.01;
+        if(heroHeadHeight + formHeight/2 < vh/2) {
+            heroHeadElement.style.marginTop = (vh/2 - heroHeadHeight - formHeight/2)*100 + 'px';
+        } else {
+            heroHeadElement.style.marginTop = '0';
+        }
     }
     
     makeProperHeight();
