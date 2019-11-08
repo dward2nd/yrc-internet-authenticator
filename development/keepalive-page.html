@@ -270,7 +270,7 @@
     <div class="hero-body">
         <div class="container has-text-centered">
             <p class="subtitle">
-                To keep the session, leave this page open, or it will be expired in <strong id="countdown">%%TIMEOUT%%</strong> seconds.
+                To keep the session, leave this page open, or refresh it. If closing this page, the session will be expired in <strong id="countdown">%%TIMEOUT%%</strong>
             </p>
             <div class="columns">
                 <div class="column">
@@ -281,7 +281,7 @@
                 </div>
             </div>
             <p class="subtitle" style="margin-top: 2rem;font-size:.95rem;color:#d60c34"><em>
-                ขอความกรุณาทุกท่านกรอกแบบสอบถามเกี่ยวกับ UI ที่ถูกออกแบบใหม่นี้ เพื่อประโยชน์ในการปรับปรุงให้ดียิ่งขึ้นต่อไป
+                project นี้จะหยุดพัฒนาโดยสมบูรณ์พุธนี้ หากต้องการชื่นชม ด่า หรือ<strong style="text-decoration: underline; white-space: nowrap;">โดยเฉพาะแจ้ง bug</strong> โปรดรีบแจ้งได้ที่ link นี้ครับ
                 <a href="https://forms.gle/kMDELNEjRCZq4Hj76" target="_blank" rel="noopener noreferrer" style="-moz-user-select: text;-ms-user-select: text;-khtml-user-select: text;-webkit-user-select: text;-webkit-touch-callout: default;user-select: text;">https://forms.gle/kMDELNEjRCZq4Hj76</a>
             </em></p>
         </div>
@@ -289,12 +289,40 @@
     <div class="hero-foot has-text-centered">
         <p style="font-size:0.8em;">
             ออกแบบโดย นายศักย์ศิลกาล เพชรกุลจินดา<br>
-            นักเรียนชั้น ม.6/2 รุ่น 114 (อคิรัญชน์, 2562)<br>
+            นักเรียนชั้น ม.6/2 รุ่น 114 (2562)<br>
             <em>ปรับปรุงล่าสุด: 08/11/2019</em>
         </p>
     </div>
 </section>
 <script>
+    var timeover= new Date().getTime() + %%TIMEOUT%% * 1000;
+    var now = 0;
+    var timeleft = 0;
+    var h = 0;
+    var m = 0;
+    var s = 0;
+
+    function countDown() {
+        now = new Date().getTime();
+        timeleft = Math.floor((timeover - now) / 1000);
+        if (timeleft <= 0) {
+            location.href = "%%KEEPALIVEURL%%";
+            return;
+        }
+        
+        h = Math.floor(timeleft / 3600);
+        m = Math.floor((timeleft % 3600) / 60);
+        s = Math.floor(timeleft % 60);
+        
+        document.getElementById('countdown').innerHTML = h+'h '+m+'m '+s+'s<br>[ '+ timeleft +'s ]';
+        setTimeout(countDown, 1000);
+    }
+    function startit() {
+        countDown();
+    }
+
+    window.onload = startit;
+
     function makeProperHeight() {
         var vh = window.innerHeight * 0.01;
         document.documentElement.style.setProperty('--vh', vh+'px');
@@ -311,28 +339,6 @@
     
     makeProperHeight();
     window.onresize = makeProperHeight;
-
-    var countDownTime = 5000;
-
-    function countDown() {
-        countDownTime--;
-        if (countDownTime <= 0) {
-            location.href = "%%KEEPALIVEURL%%";
-            return;
-        }
-        
-        var h = Math.floor(countDownTime / 3600);
-        var m = Math.floor((CountDownTime % 3600) / 60);
-        var s = Math.floor(countDownTime % 60);
-        
-        document.getElementById('countdown').innerHTML = h+'h '+m+'m '+s+'s';
-        counter = setTimeout(countDown, 1000);
-    }
-    function startit() {
-        countDown();
-    }
-
-    window.onload = startit;
 </script>
 </body>
 </html>
