@@ -312,7 +312,7 @@
     makeProperHeight();
     window.onresize = makeProperHeight;
 
-    var countDownTime = %%TIMEOUT%% + 1;
+    var countDownTime = 5000;
 
     function countDown() {
         countDownTime--;
@@ -320,7 +320,12 @@
             location.href = "%%KEEPALIVEURL%%";
             return;
         }
-        document.getElementById('countdown').innerHTML = countDownTime;
+        
+        var h = Math.floor(countDownTime / 3600);
+        var m = Math.floor((CountDownTime % 3600) / 60);
+        var s = Math.floor(countDownTime % 60);
+        
+        document.getElementById('countdown').innerHTML = h+'h '+m+'m '+s+'s';
         counter = setTimeout(countDown, 1000);
     }
     function startit() {
