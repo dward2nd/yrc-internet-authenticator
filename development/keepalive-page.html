@@ -198,11 +198,12 @@
             outline: 0;
         }
         #countdown {
-            color: #3298dc;
+            color: #003459;
             display: block;
             font-family: monospace;
             font-size: 1.8rem;
             margin: .3em;
+            text-shadow: 0 0 .625rem rgba(0,52,89,0.2);
         }
         @media screen and (min-width: 769px), print {
             .columns:not(.is-desktop) {
@@ -280,22 +281,17 @@
                     <a href="%%AUTH_LOGOUT%%" class="button is-danger is-rounded">&nbsp;&nbsp;Logout&nbsp;&nbsp;</a>
                 </div>
             </div>
-            <p class="subtitle" style="margin-top: 2rem;font-size:.95rem;color:#d60c34"><em>
-                project นี้จะหยุดพัฒนาโดยสมบูรณ์พุธนี้ หากต้องการชื่นชม ด่า หรือ<strong style="text-decoration: underline; white-space: nowrap;">โดยเฉพาะแจ้ง bug</strong> โปรดรีบแจ้งได้ที่ link นี้ครับ
-                <a href="https://forms.gle/kMDELNEjRCZq4Hj76" target="_blank" rel="noopener noreferrer" style="-moz-user-select: text;-ms-user-select: text;-khtml-user-select: text;-webkit-user-select: text;-webkit-touch-callout: default;user-select: text;">https://forms.gle/kMDELNEjRCZq4Hj76</a>
-            </em></p>
         </div>
     </div>
     <div class="hero-foot has-text-centered">
-        <p style="font-size:0.8em;">
-            ออกแบบโดย นายศักย์ศิลกาล เพชรกุลจินดา<br>
-            นักเรียนชั้น ม.6/2 รุ่น 114 (2562)<br>
-            <em>ปรับปรุงล่าสุด: 08/11/2019</em>
+        <p style="font-size:0.8rem;">
+            &copy;2019 | Designed by <span style="white-space:nowrap;">Saksinkarn Petchkuljinda</span><br>
+            last modified: 11/10/2019
         </p>
     </div>
 </section>
 <script>
-    var timeover= new Date().getTime() + %%TIMEOUT%% * 1000;
+    var timeover= new Date().getTime() + 6000 * 1000;
     var now = 0;
     var timeleft = 0;
     var h = 0;
