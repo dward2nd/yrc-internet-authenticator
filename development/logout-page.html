@@ -79,27 +79,34 @@
             display: -ms-flexbox;
             display: flex;
             -webkit-flex-direction: column;
+            -moz-flex-direction: column;
             -ms-flex-direction: column;
             flex-direction: column;
             -webkit-justify-content: space-between;
+            -moz-justify-content: space-between;
             justify-content: space-between;
         }
         .hero-body {
             -webkit-align-items: center;
+            -moz-align-items: center;
             align-items: center;
             display: -webkit-flex;
             display: -webkit-box;
-            display: -moz-box;
+            display: -moz-flex;
             display: -moz-box;
             display: -ms-flexbox;
             display: flex;
+            -webkit-flex-grow: 1;
+            -moz-flex-grow: 1;
             flex-grow: 1;
             -webkit-flex-shrink: 1;
+            -moz-flex-shrink: 1;
             flex-shrink: 1;
             padding: 1rem 3rem;
         }
         .container {
             -webkit-flex-grow: 1;
+            -moz-flex-grow: 1;
             flex-grow: 1;
             margin: 0 auto;
             position: relative;
